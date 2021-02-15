@@ -4,12 +4,12 @@
   <!-- best_stations -->
   <table class="table">
     <thead>
-      <th>region</th>
-      <th>station</th>
-      <th>code departement</th>
-      <th>code region</th>
-      <th>code station</th>
-      <th>results average</th>
+      <th>Région</th>
+      <th>Libellé</th>
+      <th>Code département</th>
+      <th>Code région</th>
+      <th>Code</th>
+      <th>Moyenne des résultats des analyses</th>
     </thead>
     <tbody>
       <tr *ngFor="let bestStation of metrics.best_stations">
@@ -27,12 +27,12 @@
   <!-- worst_stations -->
   <table class="table">
     <thead>
-      <th>region</th>
-      <th>station</th>
-      <th>code departement</th>
-      <th>code region</th>
-      <th>code station</th>
-      <th>results average</th>
+      <th>Région</th>
+      <th>Libellé</th>
+      <th>Code département</th>
+      <th>Code région</th>
+      <th>Code</th>
+      <th>Moyenne des résultats des analyses</th>
     </thead>
     <tbody>
       <tr *ngFor="let worstStation of metrics.worst_stations">
@@ -49,7 +49,7 @@
   <h2>Moyenne des résultats par département</h2>
   <table class="table">
     <thead>
-      <th>Code departement</th>
+      <th>Code département</th>
       <th>Moyenne des résultats</th>
     </thead>
     <tbody>

@@ -1,17 +1,40 @@
 <div *ngIf="!isLoading">
+  <div class="page-header">
+    <h3 class="page-title">
+      {{
+        count
+          ? count > 1
+            ? count + " " + "stations trouvées"
+            : count + " " + "station trouvée"
+          : "Aucune station trouvée"
+      }}
+    </h3>
+    <nav aria-label="breadcrumb">
+      <div class="">
+        <div class="breadcrumb-item active" aria-current="page">
+          <button class="btn-sm btn btn-primary" (click)="displayFilter()">
+            Filtrer les stations
+          </button>
+        </div>
+      </div>
+    </nav>
+  </div>
   <table class="table">
     <thead>
-      <th>region</th>
-      <th>station</th>
-      <th>code departement</th>
-      <th>code region</th>
-      <th>code station</th>
-      <th>results average</th>
+      <th>Région</th>
+      <th>Libellé</th>
+      <th>Code département</th>
+      <th>Code région</th>
+      <th>Code</th>
+      <th>Moyenne des résultats des analyses</th>
       <th></th>
     </thead>
     <tbody>
       <tr *ngFor="let station of stations">
-        <app-station-item style="display: contents;" [station]="station"></app-station-item>
+        <app-station-item
+          style="display: contents"
+          [station]="station"
+        ></app-station-item>
       </tr>
     </tbody>
   </table>
