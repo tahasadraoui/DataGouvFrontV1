@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import { IMetric } from '../shared/model/metrics.model';
-import { IRStation } from '../shared/model/station.model';
+import { IRStation, IStation } from '../shared/model/station.model';
 
 
 enum ApiMethod {
@@ -53,5 +53,11 @@ export class ApiService {
 
   async loadStations(query: string): Promise<IRStation> {
     return await this.callApi<IRStation>(ApiMethod.GET, `stations/?${query}`);
+  }
+  async loadStation(id: number): Promise<IStation> {
+    return await this.callApi<IStation>(ApiMethod.GET, `stations/${id}/`);
+  }
+  async patchStation(stationId: number, station: Partial<IStation>): Promise<IStation> {
+    return await this.callApi<IStation>(ApiMethod.PATCH, `stations/${stationId}/`, station);
   }
 }

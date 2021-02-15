@@ -5,7 +5,7 @@
 <td>{{station.code_station}}</td>
 <td>{{station.results_average}}</td>
 <td>
-  <button class="btn btn-outline-primary mx-1">
+  <button class="btn btn-outline-primary mx-1" [routerLink]="['/stations/edit', station.id]">
     edit
   </button>
   <button class="btn btn-outline-primary mx-1">

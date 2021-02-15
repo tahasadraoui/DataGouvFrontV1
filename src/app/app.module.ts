@@ -9,19 +9,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { StationsComponent } from './components/stations/stations.component';
 import { StationItemComponent } from './components/station-item/station-item.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ManageStationComponent } from './components/manage-station/manage-station.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     MetricsComponent,
     StationsComponent,
-    StationItemComponent
+    StationItemComponent,
+    ManageStationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [ApiService, { provide: 'API_URL', useFactory: () => document.location.origin }],
   bootstrap: [AppComponent]
