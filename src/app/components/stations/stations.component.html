@@ -1,23 +1,111 @@
 <div *ngIf="!isLoading">
+  <div class="w-100 p-2"></div>
   <div class="page-header">
-    <h3 class="page-title">
-      {{
-        count
-          ? count > 1
-            ? count + " " + "stations trouvées"
-            : count + " " + "station trouvée"
-          : "Aucune station trouvée"
-      }}
-    </h3>
-    <nav aria-label="breadcrumb">
-      <div class="">
-        <div class="breadcrumb-item active" aria-current="page">
-          <button class="btn-sm btn btn-primary" (click)="displayFilter()">
-            Filtrer les stations
-          </button>
+    <div class="col-12 mb-2">
+      <div class="col-5">
+        <h3 class="page-title">
+          {{
+            count
+              ? count > 1
+                ? count + " " + "stations trouvées"
+                : count + " " + "station trouvée"
+              : "Aucune station trouvée"
+          }}
+        </h3>
+      </div>
+    <div class="col-7">
+      <div class="breadcrumb-item active" aria-current="page">
+        <button class="btn-sm btn btn-primary" (click)="displayFilter()">
+          Filtrer les stations
+        </button>
+      </div>
+    </div>
+
+    <div
+      class="row advanced-filter"
+      [ngClass]="{ 'd-none': displayFilterClass }"
+    >
+      <div class="col-6 mb-2">
+        <div class="row">
+          <div class="col-5">
+            <label class="text-primary font-weight-bold m-0 py-1"> Code </label>
+          </div>
+          <div class="col-7">
+            <input
+              class="form-control"
+              type="text"
+              name="Code"
+              [(ngModel)]="codeStationFilter"
+              placeholder="Code"
+            />
+          </div>
         </div>
       </div>
-    </nav>
+      <div class="col-6 mb-2">
+        <div class="row">
+          <div class="col-5">
+            <label class="text-primary font-weight-bold m-0 py-1">
+              Libellé
+            </label>
+          </div>
+          <div class="col-7">
+            <input
+              class="form-control"
+              type="text"
+              name="Code"
+              [(ngModel)]="libelleStationFilter"
+              placeholder="Libelle"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 mb-2">
+        <div class="row">
+          <div class="col-5">
+            <label class="text-primary font-weight-bold m-0 py-1">
+              Région
+            </label>
+          </div>
+          <div class="col-7">
+            <input
+              class="form-control"
+              type="text"
+              name="Code"
+              [(ngModel)]="regionStationFilter"
+              placeholder="Région"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-6 mb-2">
+        <div class="row">
+          <div class="col-5">
+            <label class="text-primary font-weight-bold m-0 py-1">
+              Code département
+            </label>
+          </div>
+          <div class="col-7">
+            <input
+              class="form-control"
+              type="text"
+              name="Code"
+              [(ngModel)]="codeDepartementStationFilter"
+              placeholder="Code département"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 text-center mt-2">
+        <button class="btn-sm btn btn-primary" (click)="search()">
+          Chercher
+        </button>
+        <button class="btn-sm btn btn-secondary ml-2" (click)="clear()">
+          Vider les champs
+        </button>
+      </div>
+    </div>
   </div>
   <table class="table">
     <thead>
