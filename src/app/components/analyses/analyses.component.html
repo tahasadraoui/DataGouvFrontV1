@@ -1,0 +1,52 @@
+<div *ngIf="!isLoading">
+  <div class="w-100 p-2"></div>
+  <div class="page-header">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="page-title">
+          {{
+            count
+              ? count > 1
+                ? count + " " + "analyses"
+                : count + " " + "analyse"
+              : "Aucune analyse"
+          }}
+        </h3>
+      </div>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <th>Nom producteur</th>
+      <th>Code producteur</th>
+      <th>Nom réseau</th>
+      <th>Code réseau</th>
+      <th>Incertitude analytique</th>
+      <th>Résultat</th>
+      <th>Date prélèvement</th>
+      <th>Heure prélèvement</th>
+      <th>Date analyse</th>
+      <th>Heure analyse</th>
+      <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let analyse of analyses">
+          <app-analyse-item
+            style="display: contents"
+            [analyse]="analyse"
+          ></app-analyse-item>
+        </tr>
+      </tbody>
+  </table>
+  <div class="row justify-content-center">
+    <ngb-pagination
+      [collectionSize]="count"
+      [(page)]="page"
+      [pageSize]="20"
+      [maxSize]="5"
+      [rotate]="true"
+      [boundaryLinks]="true"
+      (pageChange)="loadAnalysesByStation(page)"
+    ></ngb-pagination>
+  </div>
+</div>
