@@ -15,6 +15,8 @@ export interface IAnalyse {
   code_reseau?: string;
   incertitude_analytique?: number;
   resultat?: number;
+  date_prelevement?: Date;
+  heure_prelevement?: Time;
   date_analyse?: Date;
   heure_analyse?: Time;
 }

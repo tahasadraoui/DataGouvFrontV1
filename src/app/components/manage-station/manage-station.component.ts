@@ -6,16 +6,20 @@ import { IStation } from 'src/app/shared/model/station.model';
 @Component({
   selector: 'app-manage-station',
   templateUrl: './manage-station.component.html',
-  styleUrls: ['./manage-station.component.scss']
+  styleUrls: ['./manage-station.component.scss'],
 })
 export class ManageStationComponent implements OnInit {
   station: IStation;
   isLoading = false;
   isLocked = false;
-  constructor(private activatedRoute: ActivatedRoute, private route: Router, private api: ApiService) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private route: Router,
+    private api: ApiService
+  ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(async param => {
+    this.activatedRoute.params.subscribe(async (param) => {
       this.isLoading = true;
       const stationId = +param.id;
       try {
@@ -39,7 +43,7 @@ export class ManageStationComponent implements OnInit {
         libelle_region: this.station.libelle_region,
         libelle_station: this.station.libelle_station,
       };
-      await this.api.patchStation(stationId, station);
+      await this.api.updateStation(stationId, station);
       this.route.navigate(['/stations']);
     } catch (error) {
       console.error(error);

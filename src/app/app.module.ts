@@ -11,6 +11,8 @@ import { StationItemComponent } from './components/station-item/station-item.com
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ManageStationComponent } from './components/manage-station/manage-station.component';
 import { FormsModule } from '@angular/forms';
+import { AnalysesComponent } from './components/analyses/analyses.component';
+import { AnalyseItemComponent } from './components/analyse-item/analyse-item.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { FormsModule } from '@angular/forms';
     MetricsComponent,
     StationsComponent,
     StationItemComponent,
-    ManageStationComponent
+    ManageStationComponent,
+    AnalysesComponent,
+    AnalyseItemComponent
   ],
   imports: [
     BrowserModule,

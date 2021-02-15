@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import { IMetric } from '../shared/model/metrics.model';
 import { IRStation, IStation } from '../shared/model/station.model';
+import { IAnalyse, IRAnalyse } from '../shared/model/analyse.model';
 
 
 enum ApiMethod {
@@ -54,10 +55,17 @@ export class ApiService {
   async loadStations(query: string): Promise<IRStation> {
     return await this.callApi<IRStation>(ApiMethod.GET, `stations/?${query}`);
   }
+
   async loadStation(id: number): Promise<IStation> {
     return await this.callApi<IStation>(ApiMethod.GET, `stations/${id}/`);
   }
-  async patchStation(stationId: number, station: Partial<IStation>): Promise<IStation> {
+
+  async updateStation(stationId: number, station: Partial<IStation>): Promise<IStation> {
     return await this.callApi<IStation>(ApiMethod.PATCH, `stations/${stationId}/`, station);
   }
+
+  async loadAnalysesByStation(query: string): Promise<IRAnalyse> {
+    return await this.callApi<IRAnalyse>(ApiMethod.GET, `analyses/?${query}`);
+  }
+
 }
