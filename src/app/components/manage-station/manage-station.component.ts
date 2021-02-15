@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { IStation } from 'src/app/shared/model/station.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-manage-station',
@@ -44,9 +45,19 @@ export class ManageStationComponent implements OnInit {
         libelle_station: this.station.libelle_station,
       };
       await this.api.updateStation(stationId, station);
-      this.route.navigate(['/stations']);
+      Swal.fire({
+        html: 'Les données sont modifiées avec succès',
+      }).then((e) => {
+        this.route.navigate(['stations']);
+      });
     } catch (error) {
       console.error(error);
+      Swal.fire({
+        type: 'error',
+        html: 'Une erreur est survenue.',
+      }).then((e) => {
+        this.route.navigate(['stations']);
+      });
     } finally {
       this.isLocked = false;
     }
