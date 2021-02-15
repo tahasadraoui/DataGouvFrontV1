@@ -5,6 +5,10 @@ export interface IMetric {
   worst_stations?: IStation[];
   number_of_items?: number;
   region_code?: number;
-  code_region?: number;
-  average_results_by_departement?: any;
+  average_results_by_departement?: IAverageResultsByDepartement[];
+}
+
+export interface IAverageResultsByDepartement {
+  avarage_result?: number;
+  code_departement?: number;
 }

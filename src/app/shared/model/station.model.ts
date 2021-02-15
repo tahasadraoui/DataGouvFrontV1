@@ -5,6 +5,7 @@ export interface IRStation {
 
 export interface IStation {
   id?: number;
+  results_average?: number;
   code_station?: string;
   libelle_station?: string;
   code_departement?: number;

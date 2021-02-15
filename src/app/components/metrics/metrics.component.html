@@ -1,0 +1,63 @@
+<div *ngIf="!isLoading">
+  <div class="w-100 p-2"></div>
+  <h2>Top 10 des meilleures stations</h2>
+  <!-- best_stations -->
+  <table class="table">
+    <thead>
+      <th>region</th>
+      <th>station</th>
+      <th>code departement</th>
+      <th>code region</th>
+      <th>code station</th>
+      <th>results average</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bestStation of metrics.best_stations">
+        <td>{{bestStation.libelle_region}}</td>
+        <td>{{bestStation.libelle_station}}</td>
+        <td>{{bestStation.code_departement}}</td>
+        <td>{{bestStation.code_region}}</td>
+        <td>{{bestStation.code_station}}</td>
+        <td>{{bestStation.results_average}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="w-100 p-2"></div>
+  <h2>Top 10 des plus mauvaises stations</h2>
+  <!-- worst_stations -->
+  <table class="table">
+    <thead>
+      <th>region</th>
+      <th>station</th>
+      <th>code departement</th>
+      <th>code region</th>
+      <th>code station</th>
+      <th>results average</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let worstStation of metrics.worst_stations">
+        <td>{{worstStation.libelle_region}}</td>
+        <td>{{worstStation.libelle_station}}</td>
+        <td>{{worstStation.code_departement}}</td>
+        <td>{{worstStation.code_region}}</td>
+        <td>{{worstStation.code_station}}</td>
+        <td>{{worstStation.results_average}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="w-100 p-2"></div>
+  <h2>Moyenne des résultats par département</h2>
+  <table class="table">
+    <thead>
+      <th>Code departement</th>
+      <th>Moyenne des résultats</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let averageResultsDepartement of metrics.average_results_by_departement">
+        <td>{{averageResultsDepartement.code_departement}}</td>
+        <td>{{averageResultsDepartement.avarage_result}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
