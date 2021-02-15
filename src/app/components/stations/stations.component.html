@@ -1,0 +1,27 @@
+<div *ngIf="!isLoading">
+  <table class="table">
+    <thead>
+      <th>region</th>
+      <th>station</th>
+      <th>code departement</th>
+      <th>code region</th>
+      <th>code station</th>
+      <th>results average</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let station of stations">
+        <app-station-item style="display: contents;" [station]="station"></app-station-item>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ngb-pagination
+  [collectionSize]="count"
+  [(page)]="page"
+  [pageSize]="20"
+  [maxSize]="5"
+  [rotate]="true"
+  [boundaryLinks]="true"
+  (pageChange)="loadStations(page)"
+></ngb-pagination>
