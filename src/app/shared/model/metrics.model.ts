@@ -6,9 +6,16 @@ export interface IMetric {
   number_of_items?: number;
   region_code?: number;
   average_results_by_departement?: IAverageResultsByDepartement[];
+  weighted_average_results_by_departement?: IWeightedAverageResultsByDepartement[];
 }
 
 export interface IAverageResultsByDepartement {
   avarage_result?: number;
   code_departement?: number;
+}
+
+export interface IWeightedAverageResultsByDepartement {
+  avarage_result?: number;
+  code_departement?: number;
+  nb?: number;
 }

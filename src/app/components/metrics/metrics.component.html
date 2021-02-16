@@ -1,7 +1,6 @@
 <div *ngIf="!isLoading">
   <div class="w-100 p-2"></div>
   <h2>Top 10 des meilleures stations</h2>
-  <!-- best_stations -->
   <table class="table">
     <thead>
       <th>Région</th>
@@ -12,19 +11,19 @@
       <th>Moyenne des résultats des analyses</th>
     </thead>
     <tbody>
-      <tr *ngFor="let bestStation of metrics.best_stations">
-        <td>{{bestStation.libelle_region}}</td>
-        <td>{{bestStation.libelle_station}}</td>
-        <td>{{bestStation.code_departement}}</td>
-        <td>{{bestStation.code_region}}</td>
-        <td>{{bestStation.code_station}}</td>
-        <td>{{bestStation.results_average}}</td>
+      <tr *ngFor="let station of metrics.best_stations">
+        <td>{{station.libelle_region}}</td>
+        <td>{{station.libelle_station}}</td>
+        <td>{{station.code_departement}}</td>
+        <td>{{station.code_region}}</td>
+        <td>{{station.code_station}}</td>
+        <td>{{station.results_average}}</td>
       </tr>
     </tbody>
   </table>
+
   <div class="w-100 p-2"></div>
   <h2>Top 10 des plus mauvaises stations</h2>
-  <!-- worst_stations -->
   <table class="table">
     <thead>
       <th>Région</th>
@@ -35,16 +34,17 @@
       <th>Moyenne des résultats des analyses</th>
     </thead>
     <tbody>
-      <tr *ngFor="let worstStation of metrics.worst_stations">
-        <td>{{worstStation.libelle_region}}</td>
-        <td>{{worstStation.libelle_station}}</td>
-        <td>{{worstStation.code_departement}}</td>
-        <td>{{worstStation.code_region}}</td>
-        <td>{{worstStation.code_station}}</td>
-        <td>{{worstStation.results_average}}</td>
+      <tr *ngFor="let station of metrics.worst_stations">
+        <td>{{station.libelle_region}}</td>
+        <td>{{station.libelle_station}}</td>
+        <td>{{station.code_departement}}</td>
+        <td>{{station.code_region}}</td>
+        <td>{{station.code_station}}</td>
+        <td>{{station.results_average}}</td>
       </tr>
     </tbody>
   </table>
+
   <div class="w-100 p-2"></div>
   <h2>Moyenne des résultats par département</h2>
   <table class="table">
@@ -59,5 +59,21 @@
       </tr>
     </tbody>
   </table>
-</div>
 
+  <div class="w-100 p-2"></div>
+  <h2>Résultats pondérées par nombre des cours d'eau, par département (* 0.8)</h2>
+  <table class="table">
+    <thead>
+      <th>Code département</th>
+      <th>Nombre des cours d'eau</th>
+      <th>Moyenne des résultats pondérées</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let averageWeightedResultsDepartement of metrics.weighted_average_results_by_departement">
+        <td>{{averageWeightedResultsDepartement.code_departement}}</td>
+        <td>{{averageWeightedResultsDepartement.nb}}</td>
+        <td>{{averageWeightedResultsDepartement.avarage_result}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
